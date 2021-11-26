@@ -1,7 +1,7 @@
 const React = (function () {
+  let _val;
   function useState(initVal) {
-    let _val = initVal;
-    const state = () => _val;
+    const state = _val || initVal;
     const setState = (newVal) => {
       _val = newVal;
     };
@@ -22,11 +22,16 @@ function Component() {
 
   return {
     render: () => console.log(count),
-    click: () => setCount(count),
+    click: () => setCount(count + 1),
   };
 }
 
-const [count, setCount] = React.useState(1);
-console.log(count());
-setCount(2);
-console.log(count());
+var App = React.render(Component);
+App.click();
+var App = React.render(Component);
+App.click();
+var App = React.render(Component);
+App.click();
+var App = React.render(Component);
+App.click();
+var App = React.render(Component);
