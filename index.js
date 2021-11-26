@@ -7,7 +7,14 @@ const React = (function () {
     };
     return [state, setState];
   }
-  return { useState };
+
+  function render(Component) {
+    const C = Component();
+    C.render();
+    return C;
+  }
+
+  return { useState, render };
 })();
 
 function Component() {
