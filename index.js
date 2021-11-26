@@ -1,23 +1,14 @@
-function getAdd() {
-  let foo = 1;
-
-  return function () {
-    foo = foo + 1;
-    return foo;
+function useState(initVal) {
+  let _val = initVal;
+  const state = _val;
+  const setState = (newVal) => {
+    _val = newVal;
   };
+
+  return [state, setState];
 }
 
-const add = (function getAdd() {
-  let foo = 1;
-
-  return function () {
-    foo = foo + 1;
-    return foo;
-  };
-})();
-
-console.log(add());
-console.log(add());
-console.log(add());
-console.log(add());
-console.log(add());
+const [count, setCount] = useState(1);
+console.log(count);
+setCount(2);
+console.log(count);
