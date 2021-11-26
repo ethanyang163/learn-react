@@ -10,6 +10,15 @@ const React = (function () {
   return { useState };
 })();
 
+function Component() {
+  const [count, setCount] = React.useState(1);
+
+  return {
+    render: () => console.log(count),
+    click: () => setCount(count),
+  };
+}
+
 const [count, setCount] = React.useState(1);
 console.log(count());
 setCount(2);
